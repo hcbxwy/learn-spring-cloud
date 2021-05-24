@@ -3,7 +3,12 @@ server:
 eureka:
   instance:
     hostname: localhost
+    # 是否优先使用IP来替代hostname，默认false
+    prefer-ip-address: true
+    # 指定间隔多久向注册中心发送心跳来告知本实例还存活，默认90秒
+    lease-expiration-duration-in-seconds: 5
   client:
+    # 是否注册到eureka-server
     register-with-eureka: false
     fetch-registry: false
     service-url:
@@ -12,3 +17,7 @@ eureka:
     wait-time-in-ms-when-sync-empty: 0
     # 是否开启自我保护模式
     enable-self-preservation: false
+    # 剔除过期实例的频率，默认60秒，这里设置为5秒
+    eviction-interval-timer-in-ms: 5000
+    # 不使用缓存
+    use-read-only-response-cache: false

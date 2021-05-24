@@ -7,3 +7,5 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+    # 注册中心服务信息拉取频率
+    registry-fetch-interval-seconds: 5
